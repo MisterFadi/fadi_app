@@ -1,5 +1,5 @@
 # fadis_app
-Fad´s App - BringMe
+Fadi´s App - BringMe
 
 Die App soll eine Einkaufslisten App sein, womit man nicht nur alleine sondern auch mit Mitbewohner, Partner oder Freunde Einkaufslisten erstellen, verwalten und mit vielen Geräten (Handy, Tablet, Computer) synchronisieren kann, so das jeder und auch überall Zugriff bzw. einsehen kann was gerade benötigt wird zum jeweiligen Event.
 
