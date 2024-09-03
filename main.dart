@@ -49,7 +49,7 @@ void main() {
     }
   }
 
-  // ----- 3. eue Produkte durch das Scannen hinzufügen.
+  // ----- 3. neue Produkte durch das Scannen hinzufügen.
 
   {
     bool kameraButtonAbbruch = false;
