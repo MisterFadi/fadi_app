@@ -55,14 +55,14 @@ void main() {
     bool kameraButtonAbbruch = false;
     bool kameraButtonErlauben = false;
 
-    print("Möchtest du abbrechen? (true/false)");
+    print("Darf BringMe auf deine Kamera zugreifen? (true/false)");
     kameraButtonAbbruch = bool.parse(stdin.readLineSync()!);
 
     // print("Möchtest du erlauben? (true/false)");
     // kameraButtonErlauben = bool.parse(stdin.readLineSync()!);
 
     if (kameraButtonAbbruch == true) {
-      print("Möchtest du wirklich abbrechen? (true/false)");
+      print("Möchtest du abbrechen? (true/false)");
       bool bestaetigungAbbruch = bool.parse(stdin.readLineSync()!);
 
       if (bestaetigungAbbruch) {
@@ -76,4 +76,6 @@ void main() {
       print("Bitte wähle erneut!");
     }
   }
+
+  // ----- 4. Liste mit Gruppe erstellen
 }
