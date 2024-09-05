@@ -1,4 +1,28 @@
-import 'dart:io';
+import "dart:io";
+
+class People {
+  String name;
+  People(this.name);
+}
+
+class Gruppe {
+  String gruppenName;
+  List<People> personen;
+
+  Gruppe.Group(this.gruppenName) : personen = [];
+
+  void personHinzufuegen(People person) {
+    personen.add(person);
+    print("${person.name} wurde zur Gruppe $gruppenName hinzugefügt.");
+  }
+
+  void anzeigenMitglieder() {
+    print("Diese Mitglieder befindet sich derzeit in der Gruppe:");
+    for (var person in personen) {
+      print(person.name);
+    }
+  }
+}
 
 void main() {
   {
@@ -78,4 +102,18 @@ void main() {
   }
 
   // ----- 4. Liste mit Gruppe erstellen
+
+  List<String> gruppenMitglieder = ["Kai", "Sobhi", "Tabea", "Lukas", "Mike"];
+
+  print("Möchten Sie alle Leute in dieser Liste sehen? (ja/nein)");
+  String? antwort = stdin.readLineSync();
+
+  if (antwort != null && antwort.toLowerCase() == "ja") {
+    print("Diese Mitglieder sind in dieser Liste:");
+    for (var mitglied in gruppenMitglieder) {
+      print(mitglied);
+    }
+  } else {
+    print("Ok, dann siehst du die Mitglieder nicht.");
+  }
 }
