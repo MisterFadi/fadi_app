@@ -1,34 +1,10 @@
 import "dart:io";
 
-class People {
-  String name;
-  People(this.name);
-}
-
-class Gruppe {
-  String gruppenName;
-  List<People> personen;
-
-  Gruppe.Group(this.gruppenName) : personen = [];
-
-  void personHinzufuegen(People person) {
-    personen.add(person);
-    print("${person.name} wurde zur Gruppe $gruppenName hinzugefügt.");
-  }
-
-  void anzeigenMitglieder() {
-    print("Diese Mitglieder befindet sich derzeit in der Gruppe:");
-    for (var person in personen) {
-      print(person.name);
-    }
-  }
-}
-
 void main() {
   {
     print("Herzlich Willkommen auf BringMe:)");
 
-    // ----- 1. Erst-Registrierung eines Benutzers
+// ----- 1. Erst-Registrierung eines Benutzers
 
     // Variablen zum Speichern der Benutzerdaten
     String? username;
@@ -50,7 +26,7 @@ void main() {
     } else
       print("Registrierung fehlgeschlagen. Bitte geben Sie gültige Daten ein.");
 
-    // ----- 2. Anmelden eines Benutzers
+// ----- 2. Anmelden eines Benutzers
 
     // Festgelegte Anmeldedaten
     String correctUsername = "$username";
@@ -73,17 +49,14 @@ void main() {
     }
   }
 
-  // ----- 3. neue Produkte durch das Scannen hinzufügen.
+// ----- 3. neue Produkte durch das Scannen hinzufügen.
 
   {
     bool kameraButtonAbbruch = false;
     bool kameraButtonErlauben = false;
 
     print("Darf BringMe auf deine Kamera zugreifen? (true/false)");
-    kameraButtonAbbruch = bool.parse(stdin.readLineSync()!);
-
-    // print("Möchtest du erlauben? (true/false)");
-    // kameraButtonErlauben = bool.parse(stdin.readLineSync()!);
+    kameraButtonErlauben = bool.parse(stdin.readLineSync()!);
 
     if (kameraButtonAbbruch == true) {
       print("Möchtest du abbrechen? (true/false)");
@@ -101,19 +74,54 @@ void main() {
     }
   }
 
-  // ----- 4. Liste mit Gruppe erstellen
+// ----- 4. Liste mit Personen erstellen
 
-  List<String> gruppenMitglieder = ["Kai", "Sobhi", "Tabea", "Lukas", "Mike"];
+  // Erstelle eine neue Gruppe
+  var meineGruppe = Gruppe.Group("Party-Liste");
+  print("");
 
+  // Füge Personen zur Liste hinzu
+  meineGruppe.personHinzufuegen(People("Kai"));
+  meineGruppe.personHinzufuegen(People("Sobhi"));
+  meineGruppe.personHinzufuegen(People("Tabea"));
+  meineGruppe.personHinzufuegen(People("Lukas"));
+  meineGruppe.personHinzufuegen(People("Mike"));
+  meineGruppe.personHinzufuegen(People("Ali"));
+
+  // Abfrage ob ich die Personen in der Liste sehen möchte
   print("Möchten Sie alle Leute in dieser Liste sehen? (ja/nein)");
   String? antwort = stdin.readLineSync();
 
   if (antwort != null && antwort.toLowerCase() == "ja") {
     print("Diese Mitglieder sind in dieser Liste:");
-    for (var mitglied in gruppenMitglieder) {
-      print(mitglied);
+    for (People mitglied in meineGruppe.personen) {
+      print(mitglied.name);
     }
   } else {
-    print("Ok, dann siehst du die Mitglieder nicht.");
+    print("Ok, dann siehst du eben nicht wer in Liste ist...");
+  }
+}
+
+class People {
+  String name;
+  People(this.name);
+}
+
+class Gruppe {
+  String gruppenName;
+  List<People> personen;
+
+  Gruppe.Group(this.gruppenName) : personen = [];
+
+  void personHinzufuegen(People person) {
+    personen.add(person);
+    print("${person.name} wurde zur Gruppe $gruppenName hinzugefügt.");
+  }
+
+  void anzeigenMitglieder() {
+    print("Diese Mitglieder befindet sich derzeit in der Gruppe:");
+    for (var person in personen) {
+      print(person.name);
+    }
   }
 }
