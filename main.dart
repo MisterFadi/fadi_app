@@ -83,10 +83,8 @@ void main() {
   // Füge Personen zur Liste hinzu
   meineGruppe.personHinzufuegen(People("Kai"));
   meineGruppe.personHinzufuegen(People("Sobhi"));
-  meineGruppe.personHinzufuegen(People("Tabea"));
   meineGruppe.personHinzufuegen(People("Lukas"));
   meineGruppe.personHinzufuegen(People("Mike"));
-  meineGruppe.personHinzufuegen(People("Ali"));
 
   // Abfrage ob ich die Personen in der Liste sehen möchte
   print("Möchten Sie alle Leute in dieser Liste sehen? (ja/nein)");
